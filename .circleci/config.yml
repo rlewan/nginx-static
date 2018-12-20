@@ -3,7 +3,7 @@ version: 2
 jobs:
   build:
     docker:
-      image: docker:stable-git
+      - image: docker:stable-git
     steps:
       - checkout
       - run: docker-compose build
