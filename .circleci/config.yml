@@ -10,11 +10,11 @@ jobs:
       - run:
           name: Build the image
           command: docker-compose
-
   publish:
     docker:
       - image: docker/compose:1.23.2
     steps:
+      - checkout
       - run: echo "Hello, World!"
 
 
