@@ -1,0 +1,7 @@
+version: 2
+
+job:
+  build:
+    steps:
+      - checkout
+      - run: docker-compose build
