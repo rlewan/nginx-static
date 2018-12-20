@@ -1,7 +1,13 @@
 version: 2
 
-job:
+jobs:
   build:
     steps:
       - checkout
       - run: docker-compose build
+
+workflows:
+  version: 2
+  build-and-publish:
+    jobs:
+      - build
