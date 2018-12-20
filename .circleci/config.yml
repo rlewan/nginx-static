@@ -23,6 +23,6 @@ workflows:
   build-and-publish:
     jobs:
       - build
-      - deploy:
+      - publish:
           requires:
             - build
