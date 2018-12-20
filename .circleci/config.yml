@@ -9,7 +9,7 @@ jobs:
       - setup_remote_docker
       - run:
           name: Build the image
-          command: docker-compose
+          command: docker-compose build
   publish:
     docker:
       - image: docker/compose:1.23.2
