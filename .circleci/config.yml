@@ -2,7 +2,7 @@ version: 2
 
 jobs:
   docker:
-    - image: docker:stable-git
+    image: docker:stable-git
   build:
     steps:
       - checkout
