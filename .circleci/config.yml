@@ -6,7 +6,8 @@ jobs:
       - image: docker/compose:1.23.2
     steps:
       - checkout
-      - setup_remote_docker
+      - setup_remote_docker:
+          docker_layer_caching: true
       - run:
           name: Build the image
           command: docker-compose build
@@ -15,7 +16,8 @@ jobs:
       - image: docker/compose:1.23.2
     steps:
       - checkout
-      - setup_remote_docker
+      - setup_remote_docker:
+          docker_layer_caching: true
       - run:
           name: Publish image to Docker Hub
           command: docker-compose push
