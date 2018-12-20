@@ -15,7 +15,10 @@ jobs:
       - image: docker/compose:1.23.2
     steps:
       - checkout
-      - run: echo "Hello, World!"
+      - setup_remote_docker
+      - run:
+          name: Publish image to Docker Hub
+          command: docker-compose push
 
 
 workflows:
