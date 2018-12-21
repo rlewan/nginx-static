@@ -11,6 +11,12 @@ jobs:
           name: Build the image
           command: docker-compose build
       - run:
+          name: Login to Docker Hub
+          command: |
+            USERNAME=$(echo $DOCKER_HUB_USERNAME | base64 --decode)
+            PASSWORD=$(echo $DOCKER_HUB_PASSWORD | base64 --decode)
+            docker login --username $USERNAME --password $PASSWORD
+      - run:
           name: Publish the image to Docker Hub
           command: docker push rlewan/nginx-static:latest
 
