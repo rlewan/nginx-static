@@ -12,7 +12,7 @@ jobs:
           command: docker-compose build
       - run:
           name: Publish the image to Docker Hub
-          command: docker-compose push
+          command: docker push rlewan/nginx-static:latest
 
 workflows:
   version: 2
