@@ -11,6 +11,9 @@ jobs:
           name: Build the image
           command: docker-compose build
       - run:
+          name: Tag the image
+          command: docker tag rlewan/nginx-static rlewan/nginx-static:$CIRCLE_SHA1
+      - run:
           name: Login to Docker Hub
           command: |
             USERNAME=$(echo $DOCKER_HUB_USERNAME | base64 -d)
