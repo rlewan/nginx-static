@@ -18,7 +18,7 @@ jobs:
             docker login --username $USERNAME --password $PASSWORD
       - run:
           name: Publish the image to Docker Hub
-          command: docker push rlewan/nginx-static:latest
+          command: docker push rlewan/nginx-static:$CIRCLE_SHA1
 
 workflows:
   version: 2
