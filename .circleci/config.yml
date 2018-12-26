@@ -12,7 +12,9 @@ jobs:
           command: docker-compose build
       - run:
           name: Tag the image
-          command: docker tag rlewan/nginx-static rlewan/nginx-static:$CIRCLE_SHA1
+          command: |
+            docker tag rlewan/nginx-static rlewan/nginx-static:$CIRCLE_SHA1
+            docker tag rlewan/nginx-static rlewan/nginx-static:latest
       - run:
           name: Login to Docker Hub
           command: |
@@ -21,7 +23,9 @@ jobs:
             docker login --username $USERNAME --password $PASSWORD
       - run:
           name: Publish the image to Docker Hub
-          command: docker push rlewan/nginx-static:$CIRCLE_SHA1
+          command: |
+            docker push rlewan/nginx-static:$CIRCLE_SHA1
+            docker push rlewan/nginx-static:latest
 
 workflows:
   version: 2
